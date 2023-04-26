@@ -34,7 +34,8 @@ class Stack:
 
         :return: данные удаленного элемента
         """
-
+        if self.top is None:
+            return "Nothing to pop, let's rock"
         remove_show = self.top.data
         self.top = self.top.next_node
         return remove_show
