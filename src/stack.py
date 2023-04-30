@@ -17,6 +17,8 @@ class Stack:
     def __init__(self):
         """Конструктор класса Stack"""
         self.top = None
+        self.list = []
+        self.list_out = []
 
     def push(self, data):
         """
@@ -27,6 +29,7 @@ class Stack:
         next_node = self.top
         node = Node(data, next_node)
         self.top = node
+        self.list.append(self.top.data)
 
     def pop(self):
         """
@@ -38,4 +41,11 @@ class Stack:
             return "Nothing to pop, let's rock"
         remove_show = self.top.data
         self.top = self.top.next_node
+        self.list_out.append(remove_show)
         return remove_show
+
+    def __str__(self):
+        """Магический метод для строкового представления объекта"""
+        self.final_list = set(self.list).difference(set(self.list_out))
+        self.list_to_str = "\n".join(reversed(list(self.final_list)))
+        return self.list_to_str
