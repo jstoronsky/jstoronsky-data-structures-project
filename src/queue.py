@@ -41,7 +41,11 @@ class Queue:
 
         :return: данные удаленного элемента
         """
-        pass
+        if len(self.list) == 0:
+            return None
+        dequeue_show = self.list[0]
+        del self.list[0]
+        return dequeue_show
 
     def __str__(self):
         """Магический метод для строкового представления объекта"""
